@@ -12,7 +12,7 @@ console.log(img);
 
 Handlebars.registerPartial("button", components.button);
 Handlebars.registerPartial("form-group", components.formGroup);
-
+Handlebars.registerPartial("chat-item", components.chatItem);
 
 
 root.innerHTML = pages.authPage();

@@ -2,6 +2,10 @@ body {
     font-size: 18px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+* {
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
 .form-wrapper {
     height: 100%;
     width: 100%;
@@ -26,3 +30,4 @@ body {
     margin-top: 100px;
 }
 @import './auth/auth.scss';
+@import './chat/chat.scss';
