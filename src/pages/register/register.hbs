@@ -1,0 +1,19 @@
+<div class="form-wrapper">
+        
+        <form action="" class="form">
+            <div class="form-title">
+                Регистрация    
+            </div>
+            {{> form-group type="text" title="Имя" name="first_name"}}
+            {{> form-group type="text" title="Фамилия" name="second_name"}}
+            {{> form-group type="text" title="Логин" name="login"}}
+            {{> form-group type="text" title="Почта" name="email"}}
+            {{> form-group type="password" title="Пароль" name="password"}}
+            {{> form-group type="tel" title="Телефон" name="phone"}}
+            <div class="form-buttons">
+                {{> button name="Регистрация" link="/chat/"}}
+                {{> button name="Войти" link="/auth/"}}
+            </div>
+        </form>
+    
+</div>
