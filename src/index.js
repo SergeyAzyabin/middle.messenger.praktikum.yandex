@@ -1,8 +1,9 @@
 import Handlebars from 'handlebars';
-
+import 'normalize.css';
 import * as components from './components';
 import * as pages from './pages';
 import * as styles from './index.scss';
+
 
 import img from '../static/img/*'
 
@@ -23,5 +24,6 @@ if(path == '/register/') {
 if(path == '/chat/') {
     root.innerHTML = pages.chatPage({ img });
 }
-// if(window.location.pathname)
-console.log(window.location.pathname);
+if(path == '/profile/') {
+    root.innerHTML = pages.profilePage({ img });
+}

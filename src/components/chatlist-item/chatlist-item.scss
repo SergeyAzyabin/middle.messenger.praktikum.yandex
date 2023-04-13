@@ -3,6 +3,12 @@
     padding-top: 12px;
     padding-bottom: 12px;
     position: relative;
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        background-color: #efefef9d;
+
+    }
 }
 .chatlist-item-cols {
     display: flex;
