@@ -1,5 +1,11 @@
-import button from './button';
+import Handlebars from 'handlebars';
+import buttonLink from './button-link';
 import formGroup from './form-group';
 import chatItem from './chatlist-item';
 
-export { button, formGroup, chatItem };
+Handlebars.registerPartial("button-link", buttonLink);
+Handlebars.registerPartial("form-group", formGroup);
+Handlebars.registerPartial("chat-item", chatItem);
+
+
+export { buttonLink, formGroup, chatItem };

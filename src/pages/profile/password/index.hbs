@@ -1,0 +1,44 @@
+<main>
+	<div class="container profile-wrapper">
+        <form action="">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="{{ img.[profile.svg] }}" alt="">
+                </div>
+                <div class="profile-name">Сергей</div>
+                <div class="profile-fields">
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Старый пароль
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="password" name="oldPassword">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Пароль
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="password" name="newPassword">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Повторите пароль
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="password" name="confirm">
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="profile-buttons">
+                    {{> button-link link="/profile/" name="Сохранить" }}
+                </div>
+            </div>
+        </form>
+		
+	</div>
+</main>

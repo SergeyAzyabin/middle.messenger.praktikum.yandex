@@ -1,5 +1,5 @@
-<div class="form-wrapper">
-        
+<main>
+    <div class="form-wrapper">
         <form action="" class="form">
             <div class="form-title">
                 Регистрация    
@@ -11,9 +11,9 @@
             {{> form-group type="password" title="Пароль" name="password"}}
             {{> form-group type="tel" title="Телефон" name="phone"}}
             <div class="form-buttons">
-                {{> button name="Регистрация" link="/chat/"}}
-                {{> button name="Войти" link="/auth/"}}
+                {{> button-link name="Регистрация" link="/chat/"}}
+                {{> button-link name="Войти" link="/auth/"}}
             </div>
         </form>
-    
-</div>
+    </div>
+</main>

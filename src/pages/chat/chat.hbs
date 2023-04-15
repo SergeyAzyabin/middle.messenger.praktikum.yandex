@@ -1,102 +1,104 @@
-<div class="main-columns">
-    <div class="chatlist-column sidebar">
-        <div class="chatlist-header">
-            <a href="/profile" class="profile-btn">
-                <img src="{{ img.[profile.svg] }}" alt="">
-            </a>
-            <div class="search">
-                <input type="text" placeholder="Поиск">
-                <button type="submit"><img src="{{ img.[search.svg] }}" alt=""></button>
-            </div>
-        </div>
-        <div class="chatlist-items">
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-            {{> chat-item}}
-        </div>
-    </div>
-    <div class="main-column chat-column">
-        <div class="chat-header">
-            <div class="chat-info">
-                <div class="chat-info-img">
+<main>
+    <div class="main-columns">
+        <div class="chatlist-column sidebar">
+            <div class="chatlist-header">
+                <a href="/profile/" class="profile-btn">
                     <img src="{{ img.[profile.svg] }}" alt="">
-                </div>
-                <div class="chat-info-main">
-                    Андрей
+                </a>
+                <div class="search">
+                    <input type="text" placeholder="Поиск">
+                    <button type="submit"><img src="{{ img.[search.svg] }}" alt=""></button>
                 </div>
             </div>
-            <div class="chat-utils">
-
-            </div>
-        </div>
-        <div class="chat-wrapper">
-            <div class="chat-body">
-                <div class="chat-date">
-                    28 февраля
-                </div>
-                <div class="chat-message">
-                    <div class="chat-message-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
-                    </div>
-                    <div class="chat-message-date">
-                        17:30
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <div class="chat-message-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
-                    </div>
-                    <div class="chat-message-date">
-                        17:30
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <div class="chat-message-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
-                    </div>
-                    <div class="chat-message-date">
-                        17:30
-                    </div>
-                </div>
-                <div class="chat-message">
-                    <div class="chat-message-image">
-                        <img src="{{ img.[chat-photo-msg.jpg] }}" alt="">
-                    </div>
-                    <div class="chat-message-date">
-                        17:30
-                    </div>
-                </div>
-                <div class="chat-message owner">
-                    <div class="chat-message-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    </div>
-                    <div class="chat-message-date">
-                        17:30
-                    </div>
-                </div>
+            <div class="chatlist-items">
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
+                {{> chat-item}}
             </div>
         </div>
-        <div class="chat-input">
-            <form action="">
-                <div class="chat-input-attach">
-                    <img src="{{ img.[attachment.svg] }}" alt="">
+        <div class="main-column chat-column">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-info-img">
+                        <img src="{{ img.[profile.svg] }}" alt="">
+                    </div>
+                    <div class="chat-info-main">
+                        Андрей
+                    </div>
                 </div>
-                <input type="text" class="chat-input-field">
-                <button class="chat-send"><img src="{{img.[chat-send.svg]}}" alt=""></button>
-            </form>
-            
+                <div class="chat-utils">
 
+                </div>
+            </div>
+            <div class="chat-wrapper">
+                <div class="chat-body">
+                    <div class="chat-date">
+                        28 февраля
+                    </div>
+                    <div class="chat-message">
+                        <div class="chat-message-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
+                        </div>
+                        <div class="chat-message-date">
+                            17:30
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <div class="chat-message-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
+                        </div>
+                        <div class="chat-message-date">
+                            17:30
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <div class="chat-message-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquid ea accusantium ullam necessitatibus voluptates commodi facere quasi ipsam optio iusto temporibus deleniti, error similique.
+                        </div>
+                        <div class="chat-message-date">
+                            17:30
+                        </div>
+                    </div>
+                    <div class="chat-message">
+                        <div class="chat-message-image">
+                            <img src="{{ img.[chat-photo-msg.jpg] }}" alt="">
+                        </div>
+                        <div class="chat-message-date">
+                            17:30
+                        </div>
+                    </div>
+                    <div class="chat-message owner">
+                        <div class="chat-message-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </div>
+                        <div class="chat-message-date">
+                            17:30
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <form action="">
+                    <div class="chat-input-attach">
+                        <img src="{{ img.[attachment.svg] }}" alt="">
+                    </div>
+                    <input type="text" class="chat-input-field">
+                    <button class="chat-send"><img src="{{img.[chat-send.svg]}}" alt=""></button>
+                </form>
+                
+
+            </div>
         </div>
     </div>
-</div>
+</main>

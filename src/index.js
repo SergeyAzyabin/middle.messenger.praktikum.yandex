@@ -1,6 +1,7 @@
-import Handlebars from 'handlebars';
+// import Handlebars from 'handlebars';
+// import * as components from './components';
+
 import 'normalize.css';
-import * as components from './components';
 import * as pages from './pages';
 import * as styles from './index.scss';
 
@@ -9,21 +10,23 @@ import img from '../static/img/*'
 
 console.log(img);
 
-
-
-Handlebars.registerPartial("button", components.button);
-Handlebars.registerPartial("form-group", components.formGroup);
-Handlebars.registerPartial("chat-item", components.chatItem);
-
-
-root.innerHTML = pages.authPage();
 const path = window.location.pathname;
-if(path == '/register/') {
+if(path == '/') {
+    root.innerHTML = pages.authPage();
+} else if(path == '/register/') {
     root.innerHTML = pages.registerPage();
-}
-if(path == '/chat/') {
+} else if(path == '/chat/') {
     root.innerHTML = pages.chatPage({ img });
-}
-if(path == '/profile/') {
+} else if(path == '/profile/') {
     root.innerHTML = pages.profilePage({ img });
+} else if(path == '/profile/edit/') {
+    root.innerHTML = pages.profileEditPage({ img });
+} else if(path == '/profile/password/') {
+    root.innerHTML = pages.profilePasswordPage({ img });
+} 
+else {
+    root.innerHTML = pages.errorPage({
+        error : "404",
+        description: "Не туда попали"
+    });
 }

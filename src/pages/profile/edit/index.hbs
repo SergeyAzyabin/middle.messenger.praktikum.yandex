@@ -1,0 +1,67 @@
+<main>
+	<div class="container profile-wrapper">
+        <form action="">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="{{ img.[profile.svg] }}" alt="">
+                </div>
+                <div class="profile-name">Сергей</div>
+                <div class="profile-fields">
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Почта
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="text" name="email">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Логин
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="text" name="login">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Имя
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="text" name="first_name">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Фамилия
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="text" name="second_name">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Имя в чате
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="text" name="display_name">
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <div class="profile-field-name">
+                            Телефон
+                        </div>
+                        <div class="profile-field-value">
+                            <input type="tel" name="phone">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="profile-buttons">
+                    {{> button-link link="/profile/" name="Сохранить" }}
+                </div>
+            </div>
+        </form>
+		
+	</div>
+</main>
