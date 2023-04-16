@@ -1,14 +1,12 @@
-// import Handlebars from 'handlebars';
-// import * as components from './components';
-
 import 'normalize.css';
-import * as pages from './pages';
 import * as styles from './index.scss';
+import './components';
 
+import * as pages from './pages';
 
 import img from '../static/img/*'
 
-console.log(img);
+
 
 const path = window.location.pathname;
 if(path == '/') {
