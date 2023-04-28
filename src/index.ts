@@ -1,5 +1,5 @@
 import 'normalize.css';
-import * as styles from './index.scss';
+import './index.scss';
 import './components';
 
 import * as pages from './pages';
@@ -7,8 +7,10 @@ import * as pages from './pages';
 import img from '../static/img/*'
 
 
+// const root: HTMLElement | null = document.querySelector('#root');
 
 const path = window.location.pathname;
+
 if(path == '/') {
     root.innerHTML = pages.authPage();
 } else if(path == '/register/') {
