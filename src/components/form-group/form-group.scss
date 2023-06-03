@@ -12,9 +12,16 @@
         &:focus-visible {
             border-bottom-color: #3494fbce;
         }
+        &.error {
+            border-bottom-color: red;
+        }
     }
 }
 .form-group-title {
     font-size: 11px;
     margin-bottom: 6px;
+}
+.form-group-error {
+    color: red;
+    font-size: 12px;
 }

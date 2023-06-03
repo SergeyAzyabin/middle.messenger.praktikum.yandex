@@ -1,3 +1,3 @@
-import formGroup from './form-group.hbs';
+import FormGroup from './form-group';
 
-export default formGroup;
+export default FormGroup;

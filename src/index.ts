@@ -2,19 +2,35 @@ import 'normalize.css';
 import './index.scss';
 import './components';
 
+
+import { RenderDOM } from './utils/RenderDOM';
+
+import Auth from './pages/auth';
+import Register from './pages/register';
+
 import * as pages from './pages';
 
-import img from '../static/img/*'
+import img from '../static/img/*';
+
 
 
 // const root: HTMLElement | null = document.querySelector('#root');
 
 const path = window.location.pathname;
 
+
+const auth = new Auth({});
+const register = new Register({});
+
+
 if(path == '/') {
-    root.innerHTML = pages.authPage();
+    
+    RenderDOM('#root', auth);
+    
 } else if(path == '/register/') {
-    root.innerHTML = pages.registerPage();
+
+    RenderDOM('#root', register);
+
 } else if(path == '/chat/') {
     root.innerHTML = pages.chatPage({ img });
 } else if(path == '/profile/') {

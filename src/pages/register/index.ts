@@ -1,4 +1,3 @@
+import Register from './register';
 
-import registerTpl from './register.hbs';
-
-export default registerTpl;
+export default Register;

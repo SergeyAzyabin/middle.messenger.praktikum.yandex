@@ -1,3 +1,4 @@
-import buttonLink from './button-link.hbs';
 
-export default buttonLink;
+import ButtonLink from './button-link';
+
+export default ButtonLink;

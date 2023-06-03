@@ -11,9 +11,14 @@
         "module": "ES6",
         "allowJs": true,
         "moduleResolution": "Node",
+        "allowSyntheticDefaultImports" : true,
         "typeRoots": [
             "./src/@types", 
             "./node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "DOM"
         ]
     }
 }

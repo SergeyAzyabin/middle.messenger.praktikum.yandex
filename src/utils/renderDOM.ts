@@ -1,7 +1,7 @@
 import Block from './Block';
 
 export function RenderDOM(query: string, block: Block) {
-
+    
     const root = document.querySelector(query);
 
     if (!root) {
@@ -9,6 +9,7 @@ export function RenderDOM(query: string, block: Block) {
     }
 
     root.innerHTML = '';
+    
     root.appendChild(block.getContent());
   
     return root;

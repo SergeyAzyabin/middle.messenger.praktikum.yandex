@@ -1,4 +1,4 @@
 
-import authTpl from './auth.hbs';
+import Auth from './auth';
 
-export default authTpl;
+export default Auth;
