@@ -27,6 +27,7 @@
 		"parcel-transformer-hbs": "^1.0.4",
 		"rimraf": "^5.0.1",
 		"stylelint": "^15.6.3",
+		"stylelint-config-standard-scss": "^9.0.0",
 		"typescript": "^5.0.4"
 	},
 	"dependencies": {

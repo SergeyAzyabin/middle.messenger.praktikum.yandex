@@ -13,8 +13,9 @@ import img from '../static/img/*';
 
 
 const path = window.location.pathname;
+if (path == '/') {
 
-if(path == '/') {
+} else if(path == '/auth/') {
     RenderDOM('#root', new pages.authPage());
 } else if(path == '/register/') {
     RenderDOM('#root', new pages.registerPage());

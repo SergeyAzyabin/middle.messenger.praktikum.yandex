@@ -1,5 +1,3 @@
-.container {
-}
 .profile-wrapper {
     display: flex;
     align-items: center;
@@ -8,6 +6,7 @@
     width: 100%;
     flex-direction: column;
 }
+
 .profile {
     width: 600px;
     display: flex;
@@ -15,6 +14,7 @@
     align-items: center;
     gap: 20px;
 }
+
 .profile-image {
     background-color: #efefef;
     width: 100px;
@@ -25,23 +25,22 @@
     justify-content: center;
     cursor: pointer;
 }
+
 .profile-name {
     margin-bottom: 40px;
 }
+
 .profile-fields {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .profile-field {
     display: flex;
     width: 100%;
     justify-content: space-between;
-}
-.profile-field-name {
-}
-.profile-field-value {
 }
 
 .profile-links {
@@ -50,6 +49,7 @@
     width: 100%;
     margin-top: 40px;
 }
+
 .profile-link {
     padding-bottom: 10px;
     padding-top: 10px;
