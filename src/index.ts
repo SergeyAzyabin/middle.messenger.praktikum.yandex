@@ -3,7 +3,7 @@ import './index.scss';
 import './components';
 
 
-import { RenderDOM } from './utils/RenderDOM';
+import { RenderDOM } from './utils/renderDOM';
 
 
 import * as pages from  './pages';
