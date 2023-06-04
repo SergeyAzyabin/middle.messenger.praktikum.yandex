@@ -1,6 +1,6 @@
 import tpl from './profile.hbs';
 
-import Block from '../../utils/Block';
+import Block from "../../utils/block";
 
 import img from '../../../static/img/*';
 

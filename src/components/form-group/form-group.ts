@@ -1,4 +1,4 @@
-import Block from "../../utils/Block";
+import Block from "../../utils/block";
 import Input from "../input";
 import tpl from "./form-group.hbs";
 
