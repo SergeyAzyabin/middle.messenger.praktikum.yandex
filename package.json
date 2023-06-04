@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "rimraf ./parcel-cache && parcel index.html --no-cache",
 		"build": "parcel build index.html",
-		"start": "npm run build && node server.js"
+		"start": "npm run build && node server.ts"
 	},
 	"engines": {
 		"node": ">=12"
