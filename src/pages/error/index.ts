@@ -1,4 +1,4 @@
 
-import errorTpl from './error.hbs';
+import ErrorPage from './error';
 
-export default errorTpl;
+export default ErrorPage;

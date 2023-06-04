@@ -1,3 +1,3 @@
-import profilePasswordTpl from './index.hbs';
+import ProfilePassword from './password';
 
-export default profilePasswordTpl;
+export default ProfilePassword;

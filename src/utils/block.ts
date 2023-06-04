@@ -1,4 +1,4 @@
-import { EventBus } from './EventBus';
+import { EventBus } from './eventBus';
 import { v4 as makeUUID } from 'uuid';
 
 
@@ -25,14 +25,14 @@ export default class Block {
     children: Record<string, Block>;
 
 
-    constructor(tagName: string = "div", propsAndChildren : any = {}) {
+    constructor(tagName: string = "div", propsAndChildren: any = {}) {
 
         const eventBus = new EventBus();
 
         const { props, children } = this._getChildren(propsAndChildren);
 
         this.children = children;
-        
+
         this._meta = {
             tagName,
             props
@@ -79,18 +79,18 @@ export default class Block {
 
         this._element = this._createDocumentElement(tagName);
 
-        
+
     }
 
     protected init() {
 
-        
+
 
         this._createResources();
 
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
 
-        
+
     }
 
     _componentDidMount() {
@@ -117,7 +117,7 @@ export default class Block {
         if (response) {
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
         }
-        this._render();
+
     }
 
     // Может переопределять пользователь, необязательно трогать
@@ -137,31 +137,19 @@ export default class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM)
     };
 
-    get element() : HTMLElement  {
-        
+    get element(): HTMLElement {
+
         return this._element;
     }
 
     _render() {
-        const fragment = this.render();
 
-        
-        // Этот небезопасный метод для упрощения логики
-        // Используйте шаблонизатор из npm или напишите свой безопасный
-        // Нужно не в строку компилировать (или делать это правильно),
-        // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-
-        const newElement = fragment.firstElementChild as HTMLElement;
-
-
+        const block = this.render();
         this._removeEvents();
-
-        // this._element.innerHTML = '';
-
-        this._element.replaceWith(newElement);
-
-        this._element = newElement;
-
+        this._element.innerHTML = '';
+        const element = block.firstElementChild;
+        this._element.replaceWith(block);
+        this._element = element as HTMLElement;
         this._addEvents();
 
     }
@@ -186,27 +174,50 @@ export default class Block {
         });
     }
 
-
     public compile(template: (props: any) => string, props: any): DocumentFragment {
+        const fragment = document.createElement('template');
+        const components: Record<string, Block> = {};
         const propsAndStubs = { ...props };
 
         Object.entries(this.children).forEach(([key, child]) => {
+            
+            components[child._id] = child;
             propsAndStubs[key] = `<div data-id="${child._id}"></div>`
         });
 
-        const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
-        fragment.innerHTML = template(propsAndStubs)
-
-
-        Object.values(this.children).forEach(child => {
-            const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
-            if (stub) {
-                stub.replaceWith(child.getContent());
+        Object.entries(propsAndStubs).forEach(([key, value]) => {
+            
+            if (value instanceof Array) {
+                
+                const multiValues: string[] = [];
+                Object.values(value).forEach((v) => {
+                    if (v instanceof Block) {
+                        components[v._id] = v;
+                        multiValues.push(`<div data-id="${v._id}"></div>`);
+                    }
+                });
+                
+                if (multiValues.length) {
+                    propsAndStubs[key] = multiValues.join('');
+                    
+                }
             }
+        });
+        
+        fragment.innerHTML = template(propsAndStubs);
+        
+        Object.entries(components).forEach(([id, component]) => {
+            const stub = fragment.content.querySelector(`[data-id="${id}"]`);
+            if (!stub) {
+                return;
+            }
+            stub.replaceWith(component.getContent());
         });
 
         return fragment.content;
     }
+    
+
 
     // Может переопределять пользователь, необязательно трогать
     render() {
@@ -214,36 +225,32 @@ export default class Block {
     }
 
     getContent() {
-        
+
         return this.element;
     }
 
     _makePropsProxy(props: any) {
-        // Можно и так передать this
-        // Такой способ больше не применяется с приходом ES6+
         const self = this;
 
-        return new Proxy(props, {
-            get(target, prop: string) {
+        return new Proxy(props as unknown as object, {
+            get(target: Record<string, unknown>, prop: string) {
                 const value = target[prop];
-                return typeof value === 'function' ? value.bind(target) : value;
+                return typeof value === "function" ? value.bind(target) : value;
             },
-            set(target, prop: string, value) {
-                
-                if (target[prop] !== value) {
-                    target[prop] = value;
-                    self.eventBus().emit(Block.EVENTS.FLOW_CDU);
-                    return true;
-                }
-                return false;
+            set(target: Record<string, unknown>, prop: string, value: unknown) {
+                const oldProps = { ...target };
+                target[prop] = value;
+                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target);
+                return true;
             },
-            deleteProperty(_target, _prop) {
-                throw new Error('нет доступа');
+
+            deleteProperty() {
+                throw new Error("Отказано в доступе");
             },
         });
     }
 
-    _createDocumentElement(tagName : string) {
+    _createDocumentElement(tagName: string) {
         // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         const element = document.createElement(tagName);
 

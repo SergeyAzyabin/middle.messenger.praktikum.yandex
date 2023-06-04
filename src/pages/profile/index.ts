@@ -1,3 +1,3 @@
-import profileTpl from './profile.hbs';
+import Profile from './profile';
 
-export default profileTpl;
+export default Profile;

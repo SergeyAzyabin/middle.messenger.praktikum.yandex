@@ -1,3 +1,3 @@
-import chatTpl from './chat.hbs';
+import Chat from './chat';
 
-export default chatTpl;
+export default Chat;

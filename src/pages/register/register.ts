@@ -2,7 +2,7 @@ import tpl from './register.hbs';
 
 import Block from '../../utils/Block';
 
-import { validationHandler} from '../../utils/Validation';
+import { validationHandler, Validation} from '../../utils/Validation';
 
 import { FormGroup, ButtonLink , Input} from '../../components';
 
@@ -88,17 +88,32 @@ export default class Register extends Block {
 
             buttonRegister: new ButtonLink({
                 name: 'Зарегистрироваться',
-                link: '/chat/'
-            }),
-            buttonAuth: new ButtonLink({
-                name: 'Войти',
-                link: '/auth/',
+                link: '/chat/',
                 events : {
                     click : (e: Event) => {
                         e.preventDefault();
-                        console.log(e);
+                        const form = this.element.querySelector('form') as HTMLFormElement;
+                        const formData = new FormData(form);
+                        const inputs = [this.children.inputLogin.children.input, this.children.inputPassword.children.input];
+                        let validForm = true;
+                        inputs.map((input) => {
+                            const el = input.element as HTMLInputElement;
+                            if (!Validation(el)) {
+                                validForm = false;
+                            }
+                        });
+                        if (validForm) {
+                            for (let [key, value] of formData.entries()) {
+                                console.log(key,value);
+                            }
+                        }
                     }
                 }
+            }),
+            buttonAuth: new ButtonLink({
+                name: 'Войти',
+                link: '/chat/',
+                
             }),
             
         });

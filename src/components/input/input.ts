@@ -5,6 +5,7 @@ type Props = {
     name: string,
     type: string,
     value?: string,
+    class?: string,
     events?: {
         blur?: (e: Event) => void,
         focus?: (e: Event) => void

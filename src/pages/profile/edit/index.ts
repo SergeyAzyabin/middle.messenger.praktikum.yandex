@@ -1,3 +1,3 @@
-import profileEditTpl from './index.hbs';
+import ProfileEdit from './edit';
 
-export default profileEditTpl;
+export default ProfileEdit;

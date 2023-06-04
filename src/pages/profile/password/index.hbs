@@ -12,7 +12,7 @@
                             Старый пароль
                         </div>
                         <div class="profile-field-value">
-                            <input type="password" name="oldPassword">
+                            {{{inputOldPassword}}}
                         </div>
                     </div>
                     <div class="profile-field">
@@ -20,7 +20,7 @@
                             Пароль
                         </div>
                         <div class="profile-field-value">
-                            <input type="password" name="newPassword">
+                            {{{inputNewPassword}}}
                         </div>
                     </div>
                     <div class="profile-field">
@@ -28,14 +28,14 @@
                             Повторите пароль
                         </div>
                         <div class="profile-field-value">
-                            <input type="password" name="confirm">
+                            {{{inputConfirm}}}
                         </div>
                     </div>
                     
                     
                 </div>
                 <div class="profile-buttons">
-                    {{> button-link link="/profile/" name="Сохранить" }}
+                    {{{buttonSave}}}
                 </div>
             </div>
         </form>

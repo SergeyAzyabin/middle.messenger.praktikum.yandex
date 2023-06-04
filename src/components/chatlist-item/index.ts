@@ -1,3 +1,3 @@
-import chatItem from './chatlist-item.hbs';
+import chatItem from './chatlist-item';
 
 export default chatItem;
