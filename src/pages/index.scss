@@ -1,5 +1,6 @@
 @import './chat/chat';
 @import './error/error';
+@import './profile/profile';
 
 body {
     font-size: 18px;
@@ -9,6 +10,16 @@ body {
 * {
     flex-shrink: 0;
     box-sizing: border-box;
+}
+
+nav {
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: 10px;
+    }
 }
 
 .form-wrapper {

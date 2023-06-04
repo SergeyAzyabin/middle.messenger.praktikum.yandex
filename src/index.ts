@@ -14,7 +14,7 @@ import img from '../static/img/*';
 
 const path = window.location.pathname;
 if (path == '/') {
-
+    
 } else if(path == '/auth/') {
     RenderDOM('#root', new pages.authPage());
 } else if(path == '/register/') {
@@ -27,6 +27,8 @@ if (path == '/') {
     RenderDOM('#root', new pages.profileEditPage());
 } else if(path == '/profile/password/') {
     RenderDOM('#root', new pages.profilePasswordPage());
+} else if(path == '/500/') {
+    RenderDOM('#root', new pages.errorPage());
 }
 else {
     RenderDOM('#root', new pages.errorPage());
