@@ -1,15 +1,15 @@
 import Block from '../../utils/block';
-import tpl from './button-link.hbs';
+import tpl from './button.hbs';
 
 type Props = {
   name: string,
-  link?: string,
+  type?: string,
   events?: {
     click: (e: Event) => void
   }
 };
 
-export default class ButtonLink extends Block {
+export default class Button extends Block {
 
 	constructor(props: Props) {
 		super('div', props);

@@ -1,16 +1,16 @@
 enum METHODS {
-	GET = 'GET',
-	POST = 'POST',
-	PUT = 'PUT',
-	DELETE = 'DELETE',
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
 }
 
 
 type Options = {
-	method: METHODS;
-	data?: any;
-	timeout?: number;
-	headers : Record<string,string>;
+  method: METHODS;
+  data?: any;
+  timeout?: number;
+  headers: Record<string, string>;
 };
 
 function queryStringify(data: object) {
@@ -19,24 +19,24 @@ function queryStringify(data: object) {
 
 class HTTPTransport {
 
-	get = (url : string, options : Options) => {
+	get = (url: string, options: Options) => {
 		return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 	};
 
-	
-	put = (url: string, options : Options) => {
+
+	put = (url: string, options: Options) => {
 		return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
-	}
+	};
 
-	post = (url: string, options : Options) => {
+	post = (url: string, options: Options) => {
 		return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
-	}
+	};
 
-	delete = (url: string, options : Options) => {
+	delete = (url: string, options: Options) => {
 		return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
-	}
+	};
 
-	request = (url : string, options : Options , timeout = 5000) => {
+	request = (url: string, options: Options, timeout = 5000) => {
 
 		const { headers = {}, method, data } = options;
 
@@ -49,11 +49,11 @@ class HTTPTransport {
 			const xhr = new XMLHttpRequest();
 
 			xhr.open(method, method === METHODS.GET && data ? `${url}${queryStringify(data)}` : url);
-			
+
 			Object.keys(headers).forEach(key => {
 				xhr.setRequestHeader(key, headers[key]);
 			});
-			
+
 			xhr.onload = function () {
 				resolve(xhr);
 			};
@@ -65,11 +65,11 @@ class HTTPTransport {
 			xhr.ontimeout = reject;
 
 			if (method === METHODS.GET || !data) {
-				xhr.send()
+				xhr.send();
 			} else {
-				xhr.send(data)
+				xhr.send(data);
 			}
-	
-		})
+
+		});
 	};
 }

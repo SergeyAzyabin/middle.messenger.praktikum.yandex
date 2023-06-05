@@ -1,26 +1,26 @@
 
-import Block from "../../utils/block";
+import Block from '../../utils/block';
 
-import tpl from "./input.hbs";
+import tpl from './input.hbs';
 
 type Props = {
-    name: string,
-    type: string,
-    value?: string,
-    class?: string,
-    events?: {
-        blur?: (e: Event) => void,
-        focus?: (e: Event) => void
-    }
-}
+  name: string,
+  type: string,
+  value?: string,
+  class?: string,
+  events?: {
+    blur?: (e: Event) => void,
+    focus?: (e: Event) => void
+  }
+};
 
 export default class Input extends Block {
 
-    constructor(props: Props) {
-        super('div', props);
-    }
+	constructor(props: Props) {
+		super('div', props);
+	}
 
-    render() {
-        return this.compile(tpl, this.props)
-    }
+	render() {
+		return this.compile(tpl, this.props);
+	}
 }
