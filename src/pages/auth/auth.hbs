@@ -1,14 +1,15 @@
 <main>
     <div class="form-wrapper">
-        <form action="" class="form">
+        <form id="auth" action="" class="form">
             <div class="form-title">
                 Вход
             </div>
-            {{> form-group type="text" title="Логин" name="login"}}
-            {{> form-group type="password" title="Пароль" name="password"}}
+            {{{inputLogin}}}
+            {{{inputPassword}}}
             <div class="form-buttons">
-                {{> button-link name="Вход" link="/chat/"}}
-                {{> button-link name="Нет аккаунта?" link="/register/"}}
+                {{{buttonLogin}}}
+                {{{buttonRegister}}}
+               
             </div>
         </form>
     </div>

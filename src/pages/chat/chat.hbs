@@ -3,7 +3,7 @@
         <div class="chatlist-column sidebar">
             <div class="chatlist-header">
                 <a href="/profile/" class="profile-btn">
-                    <img src="{{ img.[profile.svg] }}" alt="">
+                    <img src="{{ img.[profile.svg] }}" alt="profile">
                 </a>
                 <div class="search">
                     <input type="text" placeholder="Поиск">
@@ -11,20 +11,7 @@
                 </div>
             </div>
             <div class="chatlist-items">
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
-                {{> chat-item}}
+                {{{chatItems}}}
             </div>
         </div>
         <div class="main-column chat-column">
@@ -93,8 +80,8 @@
                     <div class="chat-input-attach">
                         <img src="{{ img.[attachment.svg] }}" alt="">
                     </div>
-                    <input type="text" class="chat-input-field">
-                    <button class="chat-send"><img src="{{img.[chat-send.svg]}}" alt=""></button>
+                    {{{chatInput}}}
+                    {{{chatSend}}}
                 </form>
                 
 

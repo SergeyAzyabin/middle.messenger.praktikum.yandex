@@ -1,7 +1,10 @@
-<div class="form-group">
+<label class="{{{class}}}">
     <div class="form-group-title">
         {{title}}
     </div>
-    <input type="{{type}}" name="{{name}}">
+    {{#if error}}
+        <div class="form-group-error">{{error}}</div>
+    {{/if}}
     
-</div>
+    {{{input}}}
+</label>
