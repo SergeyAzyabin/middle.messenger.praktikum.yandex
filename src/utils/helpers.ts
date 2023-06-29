@@ -14,3 +14,7 @@ export function RenderDOM(query: string, block: Block) {
 
 	return root;
 }
+
+export function isEqual (lhs: string, rhs: string) {
+    return lhs === rhs
+}
