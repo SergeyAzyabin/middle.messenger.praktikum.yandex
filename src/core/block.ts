@@ -5,8 +5,8 @@ import { v4 as makeUUID } from 'uuid';
 type Props = Record<string, unknown>;
 
 type Meta = {
-  tagName: string,
-  props: Props
+	tagName: string,
+	props: Props
 };
 
 export default class Block {

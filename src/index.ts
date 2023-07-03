@@ -1,59 +1,62 @@
 import 'normalize.css';
 import './index.scss';
 import './components';
-import Router from './utils/router';
 
-// import { RenderDOM } from './utils/helpers';
-
-import * as pages from './pages';
+import Router from './core/router';
+import { Store } from './core/store';
+import { HTTPTransport } from './utils/HTTPTransport';
 
 import img from '../static/img/*'; // eslint-disable-line
 
-const router = new Router('#app');
+
+export type User = {
+	id: number;
+	login: string;
+	firstName: string;
+	secondName: string;
+	displayName: string;
+	avatar: string;
+	phone: string;
+	email: string;
+};
+
+export interface AppState {
+	loginFormError: string | null;
+	user: User | null;
+}
 
 
-const links = document.querySelectorAll('a');
+export const defaultState: AppState = {
+	loginFormError: null,
+	user: null,
+};
 
-links.forEach(link => {
-	const url = link.getAttribute('href');
-	
-	link.addEventListener('click', e => {
-		e.preventDefault();
-		
-		router.go(url);
-	})
-});
-window.addEventListener('load', () => {
-
-		
-	
-		router
-		.use('/',pages.authPage)
-		.use('/sign-up', pages.registerPage)
-		.use('/settings', pages.profilePage)
-		.use('/settings/edit', pages.profileEditPage)
-		.use('/settings/password', pages.profilePasswordPage)
-		.use('/messenger', pages.chatPage)
-		.start();
+declare global {
+	interface Window {
+		store: Store<AppState>;
+		router: Router;
 	}
-)
+}
 
-// if (path == '/') {
+document.addEventListener('DOMContentLoaded', () => {
+	const store = new Store(defaultState);
 
-// } else if (path == '/auth/') {
-// 	RenderDOM('#root', new pages.authPage());
-// } else if (path == '/register/') {
-// 	RenderDOM('#root', new pages.registerPage());
-// } else if (path == '/chat/') {
-// 	RenderDOM('#root', new pages.chatPage());
-// } else if (path == '/profile/') {
-// 	RenderDOM('#root', new pages.profilePage());
-// } else if (path == '/profile/edit/') {
-// 	RenderDOM('#root', new pages.profileEditPage());
-// } else if (path == '/profile/password/') {
-// 	RenderDOM('#root', new pages.profilePasswordPage());
-// } else if (path == '/500/') {
-// 	RenderDOM('#root', new pages.errorPage());
-// } else {
-// 	RenderDOM('#root', new pages.errorPage());
-// }
+
+	store.on('changed', (prevState, nextState) => {
+		console.log(prevState);
+	});
+
+
+
+	store.dispatch(initApp);
+
+})
+
+type LoginRequestData = {
+	login: string;
+	password: string;
+};
+
+async function initApp(){
+	
+};

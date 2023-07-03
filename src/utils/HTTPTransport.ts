@@ -17,7 +17,7 @@ function queryStringify(data: object) {
 	return Object.entries(data).map(([key, value]) => key + '=' + value).join('&');
 }
 
-class HTTPTransport {
+export class HTTPTransport {
 
 	get = (url: string, options: Options) => {
 		return this.request(url, { ...options, method: METHODS.GET }, options.timeout);

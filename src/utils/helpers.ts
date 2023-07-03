@@ -1,4 +1,7 @@
-import Block from './block';
+import Block from '../core/block';
+import Router from '../core/router';
+import { Store } from '../core/store';
+
 
 export function RenderDOM(query: string, block: Block) {
 
@@ -18,3 +21,4 @@ export function RenderDOM(query: string, block: Block) {
 export function isEqual (lhs: string, rhs: string) {
     return lhs === rhs
 }
+

@@ -1,4 +1,4 @@
-import Block from '../../utils/block';
+import Block from '../../core/block';
 
 import tpl from './chat-send.hbs';
 

@@ -1,4 +1,4 @@
-import Block from './block';
+import Block from '../core/block';
 
 const validationRules: Record<string, RegExp> = {
 	login: /^[0-9a-zA-Z\-_]{3,}/,

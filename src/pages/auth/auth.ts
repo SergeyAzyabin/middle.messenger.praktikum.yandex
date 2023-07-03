@@ -1,6 +1,6 @@
 import tpl from './auth.hbs';
 
-import Block from '../../utils/block';
+import Block from '../../core/block';
 
 import { validationHandler, Validation } from '../../utils/Validation';
 
@@ -50,6 +50,7 @@ export default class Auth extends Block {
 		const form = this.element.querySelector('form') as HTMLFormElement;
 		form.addEventListener('submit', e => {
 			e.preventDefault();
+			
 			const formData = new FormData(form);
 			const inputs = [
 				this.children.inputLogin.children.input, this.children.inputPassword.children.input,
@@ -62,10 +63,12 @@ export default class Auth extends Block {
 				}
 			});
 			if (validForm) {
+				
 				for (let [key, value] of formData.entries()) {
 					console.log(key, value);
 				}
 			}
+			console.log(validForm);
 		});
 	}
 

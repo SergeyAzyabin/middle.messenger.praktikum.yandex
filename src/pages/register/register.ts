@@ -1,6 +1,6 @@
 import tpl from './register.hbs';
 
-import Block from '../../utils/block';
+import Block from '../../core/block';
 
 import { validationHandler, Validation } from '../../utils/Validation';
 

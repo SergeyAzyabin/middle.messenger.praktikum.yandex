@@ -1,9 +1,8 @@
 import Block from "./block";
 
-import { RenderDOM, isEqual } from "./helpers";
+import { RenderDOM, isEqual } from "../utils/helpers";
 
-type BlockType =
-    | typeof Block;
+type BlockType = typeof Block;
 
 type Props = Record<string, unknown>;
 
@@ -24,7 +23,7 @@ export default class Route {
     navigate(pathname : string) {
         if (this.match(pathname)) {
             this._pathname = pathname;
-            this.render();
+            this.render(this._props.rootQuery as string);
         }
     }
 
@@ -38,11 +37,11 @@ export default class Route {
         return isEqual(pathname, this._pathname);
     }
 
-    render() {
+    render(query : string) {
         if (!this._block) {
             this._block = new this._blockClass();
         }
-        RenderDOM('#root', this._block);
+        RenderDOM(query, this._block);
         this._block.show();
     }
 }

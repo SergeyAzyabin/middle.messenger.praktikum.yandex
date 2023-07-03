@@ -11,7 +11,7 @@ export default class Router {
     _currentRoute: Route | null = null;
     _rootQuery : string;
 
-    constructor(rootQuery : string) {
+    constructor(rootQuery : string = '#root') {
         if (Router.__instance) {
             return Router.__instance;
         }
@@ -25,6 +25,7 @@ export default class Router {
     }
 
     use(pathname : string, block : BlockType) {
+        
         const route = new Route(pathname, block, {rootQuery: this._rootQuery});
 
         this.routes.push(route);
@@ -57,7 +58,7 @@ export default class Router {
 
         this._currentRoute = route;
         
-        route.render();
+        route.render(this._rootQuery);
     }
 
     go(pathname : string) {

@@ -1,5 +1,5 @@
 
-import Block from '../../utils/block';
+import Block from '../../core/block';
 
 import tpl from './input.hbs';
 

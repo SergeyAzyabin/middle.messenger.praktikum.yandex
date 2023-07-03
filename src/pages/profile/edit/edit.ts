@@ -1,6 +1,6 @@
 import tpl from './index.hbs';
 
-import Block from '../../../utils/block';
+import Block from '../../../core/block';
 
 import img from '../../../../static/img/*'; // eslint-disable-line
 
