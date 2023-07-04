@@ -16,11 +16,6 @@ export default class Auth extends Block {
 
 	constructor() {
 		super('div', {});
-		
-		
-
-
-		
 	}
 
 	protected init() {
