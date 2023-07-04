@@ -10,7 +10,8 @@ type Props = {
   class?: string,
   events?: {
     blur?: (e: Event) => void,
-    focus?: (e: Event) => void
+    focus?: (e: Event) => void,
+    change? : (e: Event) => void,
   }
 };
 

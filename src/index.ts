@@ -7,6 +7,7 @@ import { Store } from './core/store';
 import { HTTPTransport } from './utils/HTTPTransport';
 
 import img from '../static/img/*'; // eslint-disable-line
+import { initRouter } from './router';
 
 
 export type User = {
@@ -44,19 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	store.on('changed', (prevState, nextState) => {
 		console.log(prevState);
+		
 	});
 
-
+	initRouter();
 
 	store.dispatch(initApp);
 
 })
 
-type LoginRequestData = {
-	login: string;
-	password: string;
-};
+// type LoginRequestData = {
+// 	login: string;
+// 	password: string;
+// };
 
 async function initApp(){
-	
+	try {
+		// const response = await authTransport.getOwnInfo();
+
+		// if (hasError(response)) {
+		// 	return;
+		// }
+
+		// dispatch({ user: response as User });
+	} catch (err) {
+		// console.error(err);
+	} finally {
+		// dispatch({ appIsInited: true });
+	}
 };

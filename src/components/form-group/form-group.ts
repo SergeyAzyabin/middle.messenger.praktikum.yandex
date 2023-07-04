@@ -7,7 +7,8 @@ type Props = {
   title: string,
   class?: string,
   input: Input,
-  error?: string
+  error?: string,
+  value?: string
 };
 
 export default class FormGroup extends Block {

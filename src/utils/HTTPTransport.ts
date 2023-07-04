@@ -7,10 +7,10 @@ enum METHODS {
 
 
 type Options = {
-  method: METHODS;
+  method?: METHODS;
   data?: any;
   timeout?: number;
-  headers: Record<string, string>;
+  headers?: Record<string, string>;
 };
 
 function queryStringify(data: object) {
@@ -19,24 +19,24 @@ function queryStringify(data: object) {
 
 export class HTTPTransport {
 
-	get = (url: string, options: Options) => {
+	get = (url: string, options: Options = {}) : Promise<XMLHttpRequest> => {
 		return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 	};
 
 
-	put = (url: string, options: Options) => {
+	put = (url: string, options: Options = {}) : Promise<XMLHttpRequest> => {
 		return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 	};
 
-	post = (url: string, options: Options) => {
+	post = (url: string, options: Options = {}) : Promise<XMLHttpRequest> => {
 		return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 	};
 
-	delete = (url: string, options: Options) => {
+	delete = (url: string, options: Options = {}) : Promise<XMLHttpRequest> => {
 		return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 	};
 
-	request = (url: string, options: Options, timeout = 5000) => {
+	request = (url: string, options: Options, timeout = 5000) : Promise<XMLHttpRequest> => {
 
 		const { headers = {}, method, data } = options;
 
